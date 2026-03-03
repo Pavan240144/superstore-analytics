@@ -9,7 +9,7 @@
 
 # DBTITLE 1,Untitled
 # Kaggle API Credentials
-# TODO: Move to Databricks Secrets
+# TODO: Move to Databricks Secrets //Facing Access Issue
 
 import os
 import json
