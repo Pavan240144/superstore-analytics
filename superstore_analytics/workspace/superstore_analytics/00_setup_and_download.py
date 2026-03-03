@@ -15,7 +15,6 @@ import os
 import json
 from pathlib import Path
 
-# Set credentials
 KAGGLE_USERNAME = "pavankumarpathi"   
 KAGGLE_KEY      = "KGAT_d24fb036529e89eed8226241212d2a5a"    
 
@@ -38,7 +37,6 @@ os.environ["KAGGLE_KEY"]      = KAGGLE_KEY
 # print(f"Kaggle Config Dir: {kaggle_dir}")
 # print(f"Kaggle Config File: {kaggle_json}")
 
-# # Verify file was created correctly
 # with open(kaggle_json, "r") as f:
 #     saved = json.load(f)
 
@@ -163,7 +161,6 @@ df.columns = df.columns.str.strip()
 
 df_spark = spark.createDataFrame(df)
 
-# Write CSV
 (
     df_spark
     .coalesce(1)
@@ -174,7 +171,6 @@ df_spark = spark.createDataFrame(df)
 )
 print(f"CSV     → {DBFS_RAW_SPARK}")
 
-# Write Parquet 
 (
     df_spark
     .write
@@ -185,9 +181,6 @@ print(f"Parquet → {DBFS_RAW_PARQUET}")
 
 # COMMAND ----------
 
-# Verify downloaded file using Spark
-
-# Read with Spark to verify
 # df_raw = spark.read \
 #     .option("header", True) \
 #     .option("inferSchema", True) \
@@ -212,13 +205,11 @@ if missing:
 else:
     print("All mandatory columns present")
 
-# Preview data
 display(df_raw.limit(5))
 
 # COMMAND ----------
 
 # Create Medallion Architecture Databases
-# One database per layer: Bronze, Silver, Gold
 
 databases = {
     "superstore_bronze" : " Raw data landed as-is",
@@ -230,9 +221,5 @@ for db_name, description in databases.items():
     spark.sql(f"CREATE DATABASE IF NOT EXISTS {db_name}")
  
 
-# Verify databases exist 
-print("Verifying databases:")
 databases_df = spark.sql("SHOW DATABASES")
 display(databases_df)
-
-print("ALL DATABASES CREATED")
