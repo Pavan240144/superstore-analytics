@@ -72,7 +72,7 @@ Kaggle API (vivek468/superstore-dataset-final)
 │  regional_performance loss_making_products          │
 │  discount_impact      executive_kpis                │
 │                                                     │
-│  + validation_report (24 automated checks)          │
+│  + validation_report           │
 └─────────────────────────────────────────────────────┘
           │
           ▼
@@ -112,11 +112,11 @@ superstore_analytics/
 │   ├── 02_bronze_ingestion.py       # Raw → Bronze Delta
 │   ├── 03_silver_transformation.py  # Bronze → Silver Delta
 │   ├── 04_gold_analytics.py         # Silver → 6 Gold Delta tables
-│   └── 05_validation.py             # 24-check validation framework
+│   └── 05_validation.py             # data validation
 │
 ├── airflow/
 │   └── dags/
-│       └── superstore_dag.py        # Airflow DAG with email alerts
+│       └── superstore_dag.py        # Airflow DAG
 │
 └── README.md
 ```
