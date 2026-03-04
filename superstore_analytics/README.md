@@ -1,6 +1,6 @@
 # SuperStore Analytics — End-to-End Data Engineering Pipeline
 
-A production-grade retail analytics solution built on **Azure Databricks** using the **Medallion Architecture** (Bronze → Silver → Gold), orchestrated with **Apache Airflow**, and visualized through a **Databricks SQL Dashboard**.
+A retail analytics solution built on **Azure Databricks** using the **Medallion Architecture** (Bronze → Silver → Gold), orchestrated with **Apache Airflow**, and visualized through a **Databricks SQL Dashboard**.
 
 ---
 
